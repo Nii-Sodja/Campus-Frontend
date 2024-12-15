@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://campus-event-management-backend.vercel.app';
+const API_BASE_URL = 'https://campus-event-managementbackend-2z5g.onrender.com';
 
 const axiosInstance = axios.create({
     baseURL: API_BASE_URL,
