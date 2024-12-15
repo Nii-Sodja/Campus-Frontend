@@ -59,8 +59,8 @@ const PreferencesPage = () => {
 
             console.log('Sending preferences:', preferences);
 
-            const response = await axios.post(
-                'http://localhost:3000/api/users/preferences',
+            const response = await api.post(
+                '/api/users/preferences',
                 preferences,
                 {
                     headers: {

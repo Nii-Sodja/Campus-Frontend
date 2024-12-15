@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import api from '../middleware/api';
 
 const EventCards = ({ event, onRsvpUpdate }) => {
     const navigate = useNavigate();
@@ -35,7 +34,7 @@ const EventCards = ({ event, onRsvpUpdate }) => {
 
         try {
             const token = user.token;
-            const response = await axios.get(`http://localhost:3000/api/events/${event._id}`, {
+            const response = await api.get(`/api/events/${event._id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -71,8 +70,8 @@ const EventCards = ({ event, onRsvpUpdate }) => {
 
             if (!isRsvped) {
                 try {
-                    const response = await axios.post(
-                        `http://localhost:3000/api/events/register/${event._id}`,
+                    const response = await api.post(
+                        `/api/events/register/${event._id}`,
                         {},
                         config
                     );
@@ -93,8 +92,8 @@ const EventCards = ({ event, onRsvpUpdate }) => {
                     }
                 }
             } else {
-                await axios.post(
-                    `http://localhost:3000/api/events/unregister/${event._id}`,
+                await api.post(
+                    `/api/events/unregister/${event._id}`,
                     {},
                     config
                 );
