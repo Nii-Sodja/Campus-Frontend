@@ -195,5 +195,5 @@ const EventCards = ({ event, onRsvpUpdate }) => {
         </div>
     );
 };
-
+// sm
 export default EventCards;
