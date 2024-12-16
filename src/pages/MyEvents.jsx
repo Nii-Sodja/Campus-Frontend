@@ -18,7 +18,11 @@ const MyEvents = () => {
                 return;
             }
 
-            const response = await api.get('/api/events/user/registered');
+            const response = await api.get('/api/events/user/registered', {
+                headers: {
+                    Authorization: `Bearer ${user.token}`
+                }
+            });
             setEvents(response.data);
             setLoading(false);
         } catch (error) {
@@ -27,9 +31,9 @@ const MyEvents = () => {
             setLoading(false);
 
             if (error.response?.status === 401) {
-                alert('Your session has expired. Please login again.');
-                localStorage.removeItem('User');
-                navigate('/login');
+                // alert('Your session has expired. Please login again.');
+                // localStorage.removeItem('User');
+                // navigate('/login');
             }
         }
     };

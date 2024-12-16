@@ -56,7 +56,7 @@ const Dashboard = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await api.get('/api/events/getEvents');
+            const response = await api.get('/api/events/');
             console.log('Fetched events:', response.data);
             
             if (response.data.length > 0) {
@@ -91,6 +91,9 @@ const Dashboard = () => {
                     event.type?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     event.location?.toLowerCase().includes(searchTerm.toLowerCase())
                 );
+                if (!filtered.length) {
+                    setError('No events found matching your criteria');
+                }
             }
 
             if (selectedType !== 'all') {

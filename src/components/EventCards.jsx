@@ -129,7 +129,7 @@ const EventCards = ({ event, onRsvpUpdate }) => {
         <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
             <div 
                 className="h-48 bg-cover bg-center"
-                style={{ backgroundImage: `url(${image})` }}
+                style={{ backgroundImage: `url(${event.backgroundImage})` }}
             />
             <div className="p-6">
                 <div className="mb-4">
