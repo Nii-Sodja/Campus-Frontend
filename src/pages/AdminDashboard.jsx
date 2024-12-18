@@ -30,7 +30,7 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('User'));
-        if (!user || !user.email || !user.email.includes('@example.com') || !user.isAdmin) {
+        if (!user || !user.email /*|| !user.email.includes('@example.com')*/ || !user.isAdmin) {
             navigate('/');
             return;
         }
